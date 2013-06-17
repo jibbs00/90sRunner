@@ -1,0 +1,8 @@
+May. 16:
+     -commented out line 575 in system/core/Kohana.php as was causing log directory not writable errors (although is writable)
+
+     -changed line 130 in system/core/Kohana.php to set a default time toproperly set current timezone.
+
+     -changed line 7 on applicaiton/config/config.php so the site domain is correct (default kohana).
+
+*** Git test on local laptop repo ***
