@@ -7,7 +7,7 @@
 class database_core 
 {      
       /* protected variables for user authenticaiton and login information */
-      protected $database = 'media_flow';
+      protected $database = '90s_runner';
       protected $table_name = 'websites';
 
       public static function setup_connection($username,$password)
@@ -15,7 +15,7 @@ class database_core
 	   /* connect to database, find correct database */
 	   $db_con = mysql_connect("localhost", $username, $password) 
 	              or die("ERROR: Could not connect to DB media_flow");
-           $db_sel = mysql_select_db("media_flow", $db_con)
+           $db_sel = mysql_select_db("90s_runner", $db_con)
 	      	      or die("ERROR: could not select DB media_flow");
 	   /* return connection */
 	   return $db_con;

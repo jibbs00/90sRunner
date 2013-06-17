@@ -10,9 +10,9 @@
    <!-- LINKS -->
    
    <!-- link for boostrap.less to compile less files -->
-   <link rel="stylesheet/less" href="/mediaflow/media/less/bootstrap.less" />
+   <link rel="stylesheet/less" href="/90sRunner/media/less/bootstrap.less" />
    <!-- link for browser tab icon -->
-   <link rel="shortcut icon" href="/mediaflow/media/ico/thumb1.ico" />
+   <link rel="shortcut icon" href="/90sRunner/media/ico/thumb1.ico" />
    
    <!-- STYLESHEETS and CSS for Bootstrap-->
    <?php echo html::stylesheet(
@@ -20,12 +20,12 @@
          array('screen',)
      ); 
    ?>
-   <link href="/mediaflow/media/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+   <link href="/90sRunner/media/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
    <!-- JAVASCRIPTS -->
 
    <!-- link to include javascripts for LESS Module -->
-   <script type="text/javascript" src="/mediaflow/media/js/less-1.3.3.min.js" ></script>
+   <script type="text/javascript" src="/90sRunner/media/js/less-1.3.3.min.js" ></script>
 
 </head>
 
@@ -67,7 +67,7 @@
 
    <!--- JAVASCRIPTS --->
    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-   <script src="/mediaflow/media/bootstrap/js/bootstrap.min.js"></script>
+   <script src="/90sRunner/media/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>

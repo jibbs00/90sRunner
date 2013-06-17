@@ -27,7 +27,7 @@ class sites_core
 	$con = database::setup_connection('root','crimson');
   	
 	// query database to insert new website into table 
-	$query = " INSERT INTO `media_flow`.`websites` 
+	$query = " INSERT INTO `90s_runner`.`websites` 
 	(`id`, `name`, `url`, `description`, `priority`) 
 	VALUES (NULL, '$name', '$url', '', '1'); ";
 
@@ -52,7 +52,7 @@ class sites_core
     public static function retrieve_urls($user)
     {
         // Variable for main view filename
-        $view = '/var/www/html/mediaflow/application/views/pages/home.php';
+        $view = '/var/www/html/90sRunner/application/views/pages/home.php';
 
         // Load the document
 	$doc = new DOMDocument();	

@@ -5,7 +5,7 @@ class Home_Controller extends Website_Controller
 	
   public function index()
   {
-    $this->template->title = '90\'s Runners | Worldwide Car Culture Collective';
+    $this->template->title = '90\'s Runner | Worldwide Car Culture Collective';
     /*$this->template->content = View::factory('pages/home')
     			     ->set('links', array(
       			     		    'home' => 'home',
