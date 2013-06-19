@@ -1,4 +1,4 @@
-<div id="container" class="outter-shading">
+<div id="container" class="outter-shading" background="/90sRunner/media/img/scw1.jpg">
      <div id="center" class="column inner-shading centrecol-outter-shading">
      	  
      </div>

@@ -31,7 +31,7 @@
 
 <body background="<?php echo $bg ?>" >
    <!-- FULL PAGE BACKGROUND -->
-   <!--<img src="/mediaflow/media/img/jCDgKkOh.jpg" class="bg">-->
+   <!--<img src="/90sRunner/media/img/scw1.jpg" class="bg">-->
    
    <h1><?php echo $main_heading; ?></h1>
 

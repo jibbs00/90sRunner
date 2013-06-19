@@ -85,7 +85,7 @@ class sites_core
 	    $li->appendChild($a);
 	}
 	$doc->saveHTML();
-	sites::retrieve_img_from_url($doc,'https://www.facebook.com');
+	sites::retrieve_icon_from_url($doc,'https://www.facebook.com');
 	// free query results
 	mysql_free_result($query);
 
@@ -111,10 +111,10 @@ class sites_core
       return $parsed;
     }
 
-    /* function will load an html page, parse for a certain image,
+    /* function will load an html page, parse for the browser icon,
        and retrieve it for use on the home page 
     */
-    public static function retrieve_img_from_url(DOMNode $domnode, $url)
+    public static function retrieve_icon_from_url(DOMNode $domnode, $url)
     {
 	/*** use PHP simple dom parser module to load html from site ***/
 	//include('simple_html_dom.php');  //DIDNT WORK
@@ -132,7 +132,6 @@ class sites_core
 	   if($node->nodeName == 'link')
 	   {
 	       $href = $node->getAttribute('href');
-	       
 	       if(strpos($href,'icon') || strpos($href,'.ico'))
 	       {
 	           
