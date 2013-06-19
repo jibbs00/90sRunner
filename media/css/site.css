@@ -3,8 +3,7 @@
  static resource to create a style sheet using the webserver for the kohana test website
  */
 
-/* put in controller for each page for own page background
-   background: url('/mediaflow/media/images/main1.png') no-repeat center center fixed; */
+/* NOTE: optimized for 1680 x 1050 */
 
 /* headers */
 
@@ -31,8 +30,8 @@ html {
 body {
     height: 100%; 
     background: #FFFFFF; 
-    min-width: 680px; /* defense so resizing doesnt break column layout */
-    /* 2x (left col+ center pad (20px each side) + right col width */
+    min-width: 910px; /* defense so resizing doesnt break column layout */
+    /* 2x (left col + center pad (20px each side) + right col width  + margin left and right cofr container*/
 }
 
 /*** FULL IMAGE BACKGROUND LAYOUT ***/
@@ -75,25 +74,27 @@ div {
 
 div#header{
     height: 50px;
-    margin: 0 0 30px 0; /* bottom margin */
+    margin: 0 115px 30px 115px; /* bottom margin */
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     color: #FFFFFF; /* text */
 }
 
 div#container{ /* container for columns */
-    padding-left: 200px; /* left column width */
-    padding-right: 240px; /*right column width + center padding */
+    padding-left: 200px; /* left col width - margin-left*/
+    padding-right: 240px; /* right col + center padding - margin-right*/
+    margin-left: 115px;
+    margin-right: 115px;
     overflow: hidden;
-    min-height: 100%: 
+    min-height: 100%:
     /* set min-height instead of height so if container > page height (html,body,etc.), accomidate content */
 }
 
 div#container .column{
     position: relative; /* helps push left column left *, wants to wrap with center */
     float: left; /* so left column doesnt wrap */
-    /*padding-bottom: 10010px; overkill padding, adds from botoom
-    margin-bottom: -10000px; */
+    /*padding-bottom: 10010px; overkill padding, add from bottom
+    margin-bottom: -10000px;*/
 }
 
 /*----- SHADING -----*/
@@ -133,19 +134,15 @@ div#container .column{
 .outter-shading{
     /* kits for webkit and mozilla browswers */
     -webkit-box-shadow: 6px 6px 10px -1px #000000;
-    -moz-box-shaodw: 6px 6px 10px -1px #000000;
+    -moz-box-shadow: 6px 6px 10px -1px #000000;
     box-shadow: 6px 6px 10px -1px #000000;
     /* right, bottom only */
-}
-
-.content-shading{
-    
 }
 
 div#center{
     /* FIX shadows overlap, fix later */
     padding: 10px 20px; /* 10px top and bottom, 20px left and right */
-    margin: 0 0 10px 0; /* 10px bottom, 0px left and right */
+    margin: 0 0 10px 0; /* 10px bottom, 15px left and right */
     width: 100%;
     background: #AFAFAF; /* silver */
 }
@@ -154,8 +151,8 @@ div#center{
 div#left{
     width: 180px; /* left column width, compensates for padding (10px each side) */
     padding: 0 10px; /* 0 top and bottom, 10px left and right */
-    margin: 0 0 10px 5px; /* 10px bottom, 5px left */
-    right: 240px; /* part of width for offset or margin, pushes right from right edge of column */
+    margin: 0 0 10px 0; /* 10px bottom, 5px left */
+    right: 240px; /* pushes left from right edge of column */
     /* also compensate for padding so left column + center padding */
     margin-left: -100%; /* pulls left colum so it doesnt wrap with center */
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
@@ -165,16 +162,28 @@ div#left{
 div#right{
     width: 180px; /* right column width, lower due center padding */
     padding: 0 10px; /* 0 top and bottom, 10px left and right */
-    margin: 0 5px 10px 0;  /* 10px bottom, 5px right */
-    margin-right: -100%; /* pull column right, so its doesnt wrap with center*/
+    margin: 0 0 10px 0;  /* 10px bottom, 5px right */
+    margin-right: -240px; /* pull column right, so its doesnt wrap with center, column width and centre padding */
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
+}
+
+/* filler/margin columns */
+div#fill-left{
+    width: 20px;
+    right: 60px;
+    background: blue;
+}
+
+div#fill-right{
+    width: 20px;
+    background: blue;
 }
 
 /*** PAGE FOOTER ***/
 
 div#footer{
     height: 75px; /* mock up height for now */
-    margin: 30px 0 0 0;
+    margin: 30px 115px 0 115px;
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     clear: both;
