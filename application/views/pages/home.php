@@ -20,7 +20,4 @@
 	      <!-- right column links -->
           </ul>
      </div>
-     <!-- filler columns to compensate and keep fluidity -->
-     <!--<div id="fill-left" class="column"></div>
-     <div id="fill-right" class="column"></div> -->
 </div>
