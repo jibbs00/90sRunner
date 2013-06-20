@@ -74,17 +74,17 @@ div {
 
 div#header{
     height: 50px;
-    margin: 0 130px 30px 130px; /* NOTE *** left and right margin from page bounds*/
+    margin: 0 120px 30px 120px; /* NOTE *** left and right margin from page bounds*/
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     color: #FFFFFF; /* text */
 }
 
 div#container{ /* container for columns */
-    padding-left: 240px; /* left col width + 10px of padding one side*/
-    padding-right: 280px; /* right col + center padding */
-    margin-left: 130px;
-    margin-right: 130px;
+    padding-left: 250px; /* left col width*/
+    padding-right: 290px; /* right col + center padding */
+    margin-left: 120px;
+    margin-right: 120px;
     overflow: hidden;
     min-height: 100%:
     /* set min-height instead of height so if container > page height (html,body,etc.), accomidate content */
@@ -144,16 +144,17 @@ div#center{
     padding: 10px 20px; /* 10px top and bottom, 20px left and right */
     margin: 0 0 10px 0; /* 10px bottom, 15px left and right */
     width: 100%;
+    min-width: 33.33%;
     background: #AFAFAF; /* silver */
 }
 
 /* left page column */
 div#left{
     width: 230px; /* left col width - padding (10px for one side) */
-    /*** create margin ^ ***/
+    /*** changing width createa margin ^ (10px) ***/
     padding: 0 10px; /* 0 top and bottom, 10px left and right */
     margin: 0 0 10px 0; /* 10px bottom, 5px left */
-    right: 320px; /* pushes left from right edge of column */
+    right: 300px; /* pushes left from right edge of column */
     /* left col + center padding and 2x (filler col) */
     margin-left: -100%; /* pulls left colum so it doesnt wrap with center */
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
@@ -161,11 +162,11 @@ div#left{
 
 /* right page column */
 div#right{
-    width: 220px; /* right column width - padding 10px for one side*/
+    width: 230px; /* right column width - padding 10px for one side*/
     padding: 0 10px; /* 0 top and bottom, 10px left and right */
-    margin: 0 0 10px 30px;  /* 10px bottom, 40px left */
-    /*** creates margin ^ ***/
-    margin-right: -320px; /* pull column right, so its doesnt wrap with center, right column width + centre padding + 2x (filler col) */
+    margin: 0 0 10px 10px;  /* 10px bottom, 20px left */
+    /*** changing left creates margin ^ ***/
+    margin-right: -300px; /* pull column right, so its doesnt wrap with center, right col width + centre padding + 2x (wanted margin) */
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
 }
 
@@ -173,7 +174,7 @@ div#right{
 
 div#footer{
     height: 75px; /* mock up height for now */
-    margin: 30px 130px 0 130px;
+    margin: 30px 120px 0 120px;
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     clear: both;
