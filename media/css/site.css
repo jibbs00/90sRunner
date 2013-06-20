@@ -29,9 +29,9 @@ html {
 
 body {
     height: 100%; 
-    background: #FFFFFF; 
-    min-width: 910px; /* defense so resizing doesnt break column layout */
-    /* 2x (left col + center pad (20px each side) + right col width  + margin left and right cofr container*/
+    background: #FFFFFF;
+    min-width: 1000px; /* defense so resizing doesnt break column layout */
+    /* 2x (left col + center pad (20px each side) + right col width  + 2x (margin-left/right in container) + filler cols*/
 }
 
 /*** FULL IMAGE BACKGROUND LAYOUT ***/
@@ -74,19 +74,20 @@ div {
 
 div#header{
     height: 50px;
-    margin: 0 115px 30px 115px; /* bottom margin */
+    margin: 0 130px 30px 130px; /* NOTE *** left and right margin from page bounds*/
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     color: #FFFFFF; /* text */
 }
 
 div#container{ /* container for columns */
-    padding-left: 200px; /* left col width - margin-left*/
-    padding-right: 240px; /* right col + center padding - margin-right*/
-    margin-left: 115px;
-    margin-right: 115px;
+    padding-left: 220px; /* left col width - margin-left*/
+    padding-right: 260px; /* right col + center padding */
+    margin-left: 130px;
+    margin-right: 130px;
     overflow: hidden;
     min-height: 100%:
+    width: 100%;
     /* set min-height instead of height so if container > page height (html,body,etc.), accomidate content */
 }
 
@@ -149,10 +150,10 @@ div#center{
 
 /* left page column */
 div#left{
-    width: 180px; /* left column width, compensates for padding (10px each side) */
+    width: 200px; /* left col width - padding (10px each side) */
     padding: 0 10px; /* 0 top and bottom, 10px left and right */
     margin: 0 0 10px 0; /* 10px bottom, 5px left */
-    right: 240px; /* pushes left from right edge of column */
+    right: 260px; /* pushes left from right edge of column */
     /* also compensate for padding so left column + center padding */
     margin-left: -100%; /* pulls left colum so it doesnt wrap with center */
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
@@ -160,22 +161,24 @@ div#left{
 
 /* right page column */
 div#right{
-    width: 180px; /* right column width, lower due center padding */
+    width: 200px; /* right column width, lower due center padding */
     padding: 0 10px; /* 0 top and bottom, 10px left and right */
     margin: 0 0 10px 0;  /* 10px bottom, 5px right */
-    margin-right: -240px; /* pull column right, so its doesnt wrap with center, column width and centre padding */
+    margin-right: -260px; /* pull column right, so its doesnt wrap with center, column width and centre padding */
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
 }
 
 /* filler/margin columns */
 div#fill-left{
     width: 20px;
-    right: 60px;
+    margin-left: -100%;
+    right: 80px;
     background: blue;
 }
 
 div#fill-right{
     width: 20px;
+    margin-right: -80px; /* FRC width + CC padding */
     background: blue;
 }
 
@@ -183,7 +186,7 @@ div#fill-right{
 
 div#footer{
     height: 75px; /* mock up height for now */
-    margin: 30px 115px 0 115px;
+    margin: 30px 130px 0 130px;
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     clear: both;
@@ -194,7 +197,7 @@ div#footer{
 /* hack for the negative margin that breaks layout in IE, 
 pushes left from left edge right (width of right column) */
 * html div#left{
-    left: 200px;
+    left: 220px;
 }
 
 * html body{
