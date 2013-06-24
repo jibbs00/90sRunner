@@ -14,7 +14,6 @@ class Home_Controller extends Website_Controller
        					    ));
 					    */
     $this->template->content = new View('pages/home');
-    $this->template->main_heading = 'Home';
     $this->template->bg = "";
 
     /*** rewrites the content of the page upon initial loading ***/

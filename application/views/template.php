@@ -25,45 +25,61 @@
    <!-- JAVASCRIPTS -->
 
    <!-- link to include javascripts for LESS Module -->
-   <script type="text/javascript" src="/90sRunner/media/js/less-1.3.3.min.js" ></script>
+   <script type="text/javascript" src="/90sRunner/media/js/less-1.3.3.min.js"></script>
 
 </head>
 
-<body background="<?php echo $bg ?>" >
-   <!-- FULL PAGE BACKGROUND -->
-   <img src="/90sRunner/media/img/site-bg4.jpg" class="bg">
-   
-   <h1><?php echo $main_heading; ?></h1>
+<body background="<?php echo $bg ?>">
+     <!-- FULL PAGE BACKGROUND -->
+     <!--<img src="/90sRunner/media/img/site-bg4.jpg" class="bg">-->
 
-   <div id="header" class="inner-shading outter-shading">
+   <div id="page_wrapper">
+
+       <!-- === MAIN PAGE === -->
+
+       <div id="page_main">
+
+          <!-- === HEADERS === -->
+          <div id="title_bar">
+          <!-- website logo with imbeded social media links -->
+          </div>
+          <!-- edit later to be removed if something not set -->
+          <div id="login_bar"></div>
+
+          <div id="header" class="inner-shading outter-shading"></div>
+
+          <!-- handle form information if controller defined as homepage -->
+          <?php
+            if(isset($_POST['site_input'])){
+	      /* insert to database */
+              sites::add_url($_POST['site_input']);
+              /* reset $content */
+              $content = sites::retrieve_urls($content);
+            }
+          ?>
+
+          <!-- MAIN PAGE CONTENT -->
+	  <?php echo $content; ?>
+
+          <!-- footer wrapper removed till solution to height problem found -->
+          <!-- <div id="footer-wrapper"> -->
+          <div id="footer" class="outter-shading">
+              <ul>
+	         <?php foreach ($page_links as $link => $url): ?>
+       	         <li><?php echo html::anchor($link, $url); ?></li>
+       	         <?php endforeach ?>
+	      </ul>
+           </div>
+           <!-- </div> -->
+
+         <!-- === FOOTER === --> 
+         <div id="bottom_footer_bar">
+         </div>
+
+       <!-- === page_main end === -->
+       </div> 
+   <!-- === page_wrapper end === -->
    </div>
-   <!-- handle form information if controller defined as homepage -->
-   <?php
-       if(isset($_POST['site_input'])){
-	   /* insert to database */
-           sites::add_url($_POST['site_input']);
-           /* reset $content */
-           $content = sites::retrieve_urls($content);
-       }
-   ?>
-
-   <!-- MAIN PAGE CONTENT -->
-   <?php echo $content; ?>
-
-<!-- footer wrapper removed till solution to height problem found -->
-<!-- <div id="footer-wrapper"> -->
-     <div id="footer" class="outter-shading">
-          <ul>
-	      <?php foreach ($page_links as $link => $url): ?>
-       	      <li><?php echo html::anchor($link, $url); ?></li>
-       	      <?php endforeach ?>
-	  </ul>
-     </div>
-<!-- </div> -->
-
-
-   <p id="date"><?php  echo date(DATE_RFC822); ?></p>
-   <hr/>
 
    <!--- JAVASCRIPTS --->
    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>

@@ -13,25 +13,33 @@ h1, h2 {
     padding: 0 10px; /* 0 top and bottom, 10px right and left */
 }
 
-h1 {
-    font-size: 250%;
-}
-
-
 
 /* page setup */
 
+/* initial pargins for everything set to 0 for wrapper */
+* { margin: 0; }
+
 html { 
-    padding: 10px;
     margin: 0 auto;
     height: 100%;
 }
 
 body {
-    height: 100%; 
+    /* height 100% */
+    /* NOTE ^ this screws up main container expanding with content */
     background: #FFFFFF;
     min-width: 1080px; /* defense so resizing doesnt break column layout */
-    /* 2x (left col + center pad (20px each side) + right col width  + 2x (margin-left/right in container) + wanted margin inbetween cols (30px)*/
+/* 2x (left col + center pad (40px) + right col width + 2x (margin-left/right in container) + wanted margin inbetween cols (20px)*/
+}
+
+#page_wrapper{
+    min-height: 100%;
+}
+
+#page_main{
+    overflow: auto;
+    /*padding-bottom: 150px;*/
+   /*** must be same size as footer bottom footer ***/
 }
 
 /*** FULL IMAGE BACKGROUND LAYOUT ***/
@@ -66,36 +74,157 @@ img.bg {
 
 /*** taken from alistapart.com/article/holygrail ***/
 div {
-    display: block;
     height: 100%;
     /* *** set header and footer height manually 
        so only container files whole page *** */
 }
 
+div#title_bar{
+    height: 65px;
+    background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
+    color: #FFFFF;
+}
+
+div#login_bar{
+    height: 50px;
+    background: #AFAFAF; /* silver */
+}
+
+/* --- WEBPAFE FOOTER LAYOUT --- */
+
+div#bottom_footer_bar{
+    position: relative;
+    /*margin-top: -150px; /* neg value for footer height */
+    height: 150px;
+    clear: both;
+    background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
+}
+
+/* -------------------------------*/
 div#header{
     height: 50px;
-    margin: 0 120px 30px 120px; /* NOTE *** left and right margin from page bounds*/
+    margin: 30px 120px 30px 120px;
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     color: #FFFFFF; /* text */
 }
 
-div#container{ /* container for columns */
+div#content_container{ /* container for columns */
     padding-left: 250px; /* left col width*/
     padding-right: 290px; /* right col + center padding */
     margin-left: 120px;
-    margin-right: 120px;
     overflow: hidden;
+    margin-right: 120px;
     min-height: 100%:
     /* set min-height instead of height so if container > page height (html,body,etc.), accomidate content */
 }
 
-div#container .column{
+div#content_container .column{
     position: relative; /* helps push left column left *, wants to wrap with center */
     float: left; /* so left column doesnt wrap */
-    /*padding-bottom: 10010px; overkill padding, add from bottom
-    margin-bottom: -10000px;*/
+    padding-bottom: 1001em;
+    margin-bottom: -1000em;
+    /* NOTE ^ allows container columns to expand and grow with content */
 }
+div#center{
+    /* FIX shadows overlap, fix later */
+    padding: 10px 20px; /* 10px top and bottom, 20px left and right */
+    margin: 0 0 10px 0; /* 10px bottom, 15px left and right */
+    width: 100%;
+    background: #AFAFAF; /* silver */
+}
+
+/* left page column */
+div#left{
+    width: 220px; /* left col width - padding (10px for one side) */
+    /*** changing width createa margin ^ (10px) ***/
+    padding: 0 0 10px 25px; /* 0 top and bottom, 10px left */
+    /*** 25px left to compensate for column being cut ***/
+    margin: 0 0 10px 0; /* 10px bottom, 5px left */
+    right: 300px; /* pushes left from right edge of column */
+    /* left col + center padding and margin */
+    margin-left: -100%; /* pulls left colum so it doesnt wrap with center */
+    background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
+}
+
+/* right page column */
+div#right{
+    width: 230px; /* right column width - padding 10px for one side*/
+    padding: 0 0 10px 15px; /* 0 top and bottom, 10px right */
+    /*** 15px left to compensate for column being cut ***/
+    margin: 0 0 10px 15px;  /* 10px bottom, 20px left */
+    /*** changing left creates margin ^ ***/
+    margin-right: -100%; /* pull column right, so its doesnt wrap with center*/
+    background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
+}
+
+/*** PAGE FOOTER ***/
+
+div#footer{
+    height: 75px; /* mock up height for now */
+    margin: 30px 120px 30px 120px;
+    position: relative;
+    background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
+    clear: both;
+}
+
+/**** FIX FOR IE6 ***/
+
+/* hack for the negative margin that breaks layout in IE, 
+pushes left from left edge right (width of right column) */
+* html div#left{
+    left: 220px;
+}
+
+* html body{
+    overflow: hidden;
+}
+
+/* hack so background of columns don't spill into footer in IE6 */
+*html #footer-wrapper{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 50px;
+    padding-bottom: 10010px;
+    margin-bottom: -10000px;
+    background: #726E6D;
+    /* needs to be same as body background */
+}
+
+/*----- DIVISION TAGS END -----*/
+
+ul {
+     list-style: none; 
+     padding: 1em 0; 
+   }
+
+ul li {
+    padding-right: 1em; 
+}
+
+/* PARAGRAPHS */
+
+p {
+    font-family: Arial, Helvetica, serif;
+    color: #FFFFFF;
+    margin: 10px,10px,0,0;
+    padding: 10px;
+}
+
+p#outter{
+    /* outter columns */
+    color: #000000;
+}
+
+/* displayed time at bottom of webpage */
+p#date {
+    font-size: 14px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+}
+
 
 /*----- SHADING -----*/
 
@@ -139,101 +268,3 @@ div#container .column{
     /* right, bottom only */
 }
 
-div#center{
-    /* FIX shadows overlap, fix later */
-    padding: 10px 20px; /* 10px top and bottom, 20px left and right */
-    margin: 0 0 10px 0; /* 10px bottom, 15px left and right */
-    width: 100%;
-    min-width: 33.33%;
-    background: #AFAFAF; /* silver */
-}
-
-/* left page column */
-div#left{
-    width: 230px; /* left col width - padding (10px for one side) */
-    /*** changing width createa margin ^ (10px) ***/
-    padding: 0 10px; /* 0 top and bottom, 10px left and right */
-    margin: 0 0 10px 0; /* 10px bottom, 5px left */
-    right: 300px; /* pushes left from right edge of column */
-    /* left col + center padding and 2x (filler col) */
-    margin-left: -100%; /* pulls left colum so it doesnt wrap with center */
-    background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
-}
-
-/* right page column */
-div#right{
-    width: 230px; /* right column width - padding 10px for one side*/
-    padding: 0 10px; /* 0 top and bottom, 10px left and right */
-    margin: 0 0 10px 10px;  /* 10px bottom, 20px left */
-    /*** changing left creates margin ^ ***/
-    margin-right: -300px; /* pull column right, so its doesnt wrap with center, right col width + centre padding + 2x (wanted margin) */
-    background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
-}
-
-/*** PAGE FOOTER ***/
-
-div#footer{
-    height: 75px; /* mock up height for now */
-    margin: 30px 120px 0 120px;
-    position: relative;
-    background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
-    clear: both;
-}
-
-/**** FIX FOR IE6 ***/
-
-/* hack for the negative margin that breaks layout in IE, 
-pushes left from left edge right (width of right column) */
-* html div#left{
-    left: 220px;
-}
-
-* html body{
-    overflow: hidden;
-}
-
-/* hack so background of columns don't spill into footer in IE6 */
-*html #footer-wrapper{
-    position: relative;
-    float: left;
-    width: 100%;
-    height: 50px;
-    padding-bottom: 10010px;
-    margin-bottom: -10000px;
-    background: #726E6D;
-    /* needs to be same as body background */
-}
-
-/*----- DIVISION TAGS END -----*/
-
-ul {
-     list-style: none; 
-     padding: 1em 0; 
-   }
-
-ul li {
-    display: inline; 
-    padding-right: 1em; 
-}
-
-/* PARAGRAPHS */
-
-p {
-    font-family: Arial, Helvetica, serif;
-    color: #FFFFFF;
-    margin: 10px,10px,0,0;
-    padding: 10px;
-}
-
-p#outter{
-    /* outter columns */
-    color: #000000;
-}
-
-/* displayed time at bottom of webpage */
-p#date {
-    font-size: 14px;
-    color: #ffffff;
-    text-align: center;
-    position: relative;
-}
