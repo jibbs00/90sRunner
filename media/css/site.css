@@ -103,7 +103,7 @@ div#bottom_footer_bar{
 /* -------------------------------*/
 div#header{
     height: 50px;
-    margin: 30px 120px 30px 120px;
+    margin: -7% 120px 5% 120px; /* -7% of page height to top to overlap on carousel */
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     color: #FFFFFF; /* text */
@@ -149,9 +149,10 @@ div#left{
 
 /* right page column */
 div#right{
+    text-align: center;
     width: 230px; /* right column width - padding 10px for one side*/
-    padding: 0 0 10px 15px; /* 0 top and bottom, 10px right */
-    /*** 15px left to compensate for column being cut ***/
+    padding: 0 0 10px 6px; /* 0 top and bottom, 6px right */
+    /*** 6px left to compensate so column isnt cut***/
     margin: 0 0 10px 15px;  /* 10px bottom, 20px left */
     /*** changing left creates margin ^ ***/
     margin-right: -100%; /* pull column right, so its doesnt wrap with center*/
@@ -160,12 +161,19 @@ div#right{
 
 /*** PAGE FOOTER ***/
 
-div#footer{
-    height: 75px; /* mock up height for now */
-    margin: 30px 120px 30px 120px;
+div#footer_navbar{
+    height: 45px;
+    margin: 5% 120px 18% 120px; /* bottom margin 18% of page height for background */
+    padding: 0 20px; /* 20px right and left only */
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     clear: both;
+}
+
+div#footer_navbar ul li{
+    padding-right: 1em;
+    vertical-align: top;
+    display: inline-block;
 }
 
 /**** FIX FOR IE6 ***/
@@ -199,10 +207,6 @@ ul {
      padding: 1em 0; 
    }
 
-ul li {
-    padding-right: 1em; 
-}
-
 /* PARAGRAPHS */
 
 p {
@@ -217,6 +221,11 @@ p#outter{
     color: #000000;
 }
 
+.carousel_atr{
+    margin: 20px 0 0 0; /* top margin 10px */
+
+}
+
 /* displayed time at bottom of webpage */
 p#date {
     font-size: 14px;
@@ -225,8 +234,7 @@ p#date {
     position: relative;
 }
 
-
-/*----- SHADING -----*/
+/*----- CLASSES -----*/
 
 .leftcol-inner-shading{
     /* kits for most browsers, except IE */
@@ -266,5 +274,12 @@ p#date {
     -moz-box-shadow: 6px 6px 10px -1px #000000;
     box-shadow: 6px 6px 10px -1px #000000;
     /* right, bottom only */
+}
+
+.side-shade{ /* left and right only */
+    /* kits for webkit and mozilla browswers */
+    -webkit-box-shadow: 6px 0px 10px -7px #000000, -6px 0px 10px -7px #000000;
+    -moz-box-shaodw: 6px 0px 10px -7px #000000, -6px 0px 10px -7px #000000;
+    box-shadow: 6px 0px 10px -7px #000000, -6px 0px 10px -7px #000000;
 }
 

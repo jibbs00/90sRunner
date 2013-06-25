@@ -14,19 +14,19 @@
    <!-- link for browser tab icon -->
    <link rel="shortcut icon" href="/90sRunner/media/ico/thumb1.ico" />
    
+   <link href="/90sRunner/media/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
    <!-- STYLESHEETS and CSS for Bootstrap-->
    <?php echo html::stylesheet(
          array('media/css/site',),
          array('screen',)
      ); 
    ?>
-   <link href="/90sRunner/media/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
    <!-- JAVASCRIPTS -->
 
    <!-- link to include javascripts for LESS Module -->
    <script type="text/javascript" src="/90sRunner/media/js/less-1.3.3.min.js"></script>
-
+   
 </head>
 
 <body background="<?php echo $bg ?>">
@@ -46,8 +46,6 @@
           <!-- edit later to be removed if something not set -->
           <div id="login_bar"></div>
 
-          <div id="header" class="inner-shading outter-shading"></div>
-
           <!-- handle form information if controller defined as homepage -->
           <?php
             if(isset($_POST['site_input'])){
@@ -63,12 +61,12 @@
 
           <!-- footer wrapper removed till solution to height problem found -->
           <!-- <div id="footer-wrapper"> -->
-          <div id="footer" class="outter-shading">
-              <ul>
-	         <?php foreach ($page_links as $link => $url): ?>
-       	         <li><?php echo html::anchor($link, $url); ?></li>
-       	         <?php endforeach ?>
-	      </ul>
+          <div id="footer_navbar" class="navbar-inverse outter-shading">
+                 <ul class="nav">
+	            <?php foreach ($page_links as $link => $url): ?>
+       	            <li><?php echo html::anchor($link, $url); ?></li>
+       	            <?php endforeach ?>
+	         </ul>
            </div>
            <!-- </div> -->
 
@@ -84,6 +82,20 @@
    <!--- JAVASCRIPTS --->
    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
    <script src="/90sRunner/media/bootstrap/js/bootstrap.min.js"></script>
+   <!-- Grab Google CDNs jQuery, with a protocol relative URL; fall back to local if necessary -->
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script>
+      window.jQuery || document.write('<script src="var/www/html/90sRunner/media/js/jquery-1.9.1.min.js"><\/script>')
+   </script>
+   <!-- initialize carosuel -->
+   <script>
+      $(document).ready(function(){
+          $('.carousel').carousel({
+	    interval: 2000
+	  });
+      });
+   </script>
+
 
 </body>
 </html>

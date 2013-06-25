@@ -60,7 +60,7 @@ class sites_core
 	$doc->formatOutput = true;
 	
 	// determine place to insert URLS
-	$ul = $doc->getElementsByTagName('ul')->item(0);
+	$ul = $doc->getElementById('right_ul');
 	
 	// setup DB connection - root for TESTING
 	$con = database::setup_connection('root','crimson');
@@ -84,8 +84,8 @@ class sites_core
 	    $ul->appendChild($br);
 	    $li->appendChild($a);
 	}
-	$doc->saveHTML();
-	sites::retrieve_icon_from_url($doc,'https://www.facebook.com');
+	//$doc->saveHTML();
+	//sites::retrieve_icon_from_url($doc,'https://www.facebook.com');
 	// free query results
 	mysql_free_result($query);
 

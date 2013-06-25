@@ -14,9 +14,9 @@ class database_core
       {
 	   /* connect to database, find correct database */
 	   $db_con = mysql_connect("localhost", $username, $password) 
-	              or die("ERROR: Could not connect to DB media_flow");
+	              or die("ERROR: Could not connect to DB");
            $db_sel = mysql_select_db("90s_runner", $db_con)
-	      	      or die("ERROR: could not select DB media_flow");
+	      	      or die("ERROR: could not select DB");
 	   /* return connection */
 	   return $db_con;
       }
