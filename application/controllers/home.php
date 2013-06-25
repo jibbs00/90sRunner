@@ -14,6 +14,8 @@ class Home_Controller extends Website_Controller
        					    ));
 					    */
     $this->template->content = new View('pages/home');
+    $this->template->component1 = new View('components/top_carousel');
+    $this->template->component2 = new View('components/bottom_carousel');
     $this->template->bg = "";
 
     /*** rewrites the content of the page upon initial loading ***/

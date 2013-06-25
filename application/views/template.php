@@ -46,6 +46,11 @@
           <!-- edit later to be removed if something not set -->
           <div id="login_bar"></div>
 
+	  <!-- === content for top carousel on main page === -->
+	  <?php  echo $component1; ?>
+
+	  <div id="header" class="inner-shading outter-shading"></div>
+	  
           <!-- handle form information if controller defined as homepage -->
           <?php
             if(isset($_POST['site_input'])){
@@ -59,16 +64,20 @@
           <!-- MAIN PAGE CONTENT -->
 	  <?php echo $content; ?>
 
-          <!-- footer wrapper removed till solution to height problem found -->
-          <!-- <div id="footer-wrapper"> -->
-          <div id="footer_navbar" class="navbar-inverse outter-shading">
-                 <ul class="nav">
-	            <?php foreach ($page_links as $link => $url): ?>
-       	            <li><?php echo html::anchor($link, $url); ?></li>
-       	            <?php endforeach ?>
-	         </ul>
-           </div>
-           <!-- </div> -->
+	  <!-- footer wrapper removed till solution to height problem found -->
+	  <!-- <div id="footer-wrapper"> -->
+	  <div id="footer_navbar" class="navbar-inverse outter-shading">
+	    <ul class="nav">
+	      <?php foreach ($page_links as $link => $url): ?>
+	      <li><?php echo html::anchor($link, $url); ?></li>
+	      <?php endforeach ?>
+	    </ul>
+	  </div>
+	  <!-- </div> -->
+
+	  <!-- content for bottom carousel on main page -->
+	  <?php  echo $component2; ?>
+
 
          <!-- === FOOTER === --> 
          <div id="bottom_footer_bar">

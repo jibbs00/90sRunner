@@ -103,7 +103,7 @@ div#bottom_footer_bar{
 /* -------------------------------*/
 div#header{
     height: 50px;
-    margin: -7% 120px 5% 120px; /* -7% of page height to top to overlap on carousel */
+    margin: -6% 120px 6% 120px; /* -6% of page height to top to overlap on carousel */
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     color: #FFFFFF; /* text */
@@ -163,7 +163,7 @@ div#right{
 
 div#footer_navbar{
     height: 45px;
-    margin: 5% 120px 18% 120px; /* bottom margin 18% of page height for background */
+    margin: 6% 120px -6% 120px; /* bottom margin -6% to overlap carousel */
     padding: 0 20px; /* 20px right and left only */
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
@@ -221,17 +221,14 @@ p#outter{
     color: #000000;
 }
 
-.carousel_atr{
-    margin: 20px 0 0 0; /* top margin 10px */
-
+.carousel_top_atr{
+    margin: 20px 0 0 0; /* top margin 20px */
 }
 
-/* displayed time at bottom of webpage */
-p#date {
-    font-size: 14px;
-    color: #ffffff;
-    text-align: center;
-    position: relative;
+.carousel_bot_atr{
+    margin: 0 0 20px 0; /* bottom margin 20px */
+    /*** NOTE: 5% top margin to pull in place as has to come
+	 before footer in html due to framework constraints ***/
 }
 
 /*----- CLASSES -----*/
