@@ -4,27 +4,18 @@
   <div class="carousel-inner">
     <div class="item active">
       <img src="http://placehold.it/1600x360" alt="" />
-      <div class="carousel-caption">
+      <!--<div class="carousel-caption">
         <p>Caption text here</p>
-      </div>
+      </div>-->
     </div>
     <div class="item">
       <img src="http://placehold.it/1600x480" alt="" />
-      <div class="carousel-caption">
-        <p>Caption text here</p>
-      </div>
     </div>
     <div class="item">
       <img src="http://placehold.it/1600x480" alt="" />
-      <div class="carousel-caption">
-        <p>Caption text here</p>
-      </div>
     </div>
     <div class="item">
       <img src="http://placehold.it/1600x480" alt="" />
-      <div class="carousel-caption">
-        <p>Caption text here</p>
-      </div>
     </div>
    </div>
    <a class="carousel-control left" href="#bot-carousel-id" data-slide="prev">&lsaquo;</a>

@@ -1,0 +1,7 @@
+/*----- overrided attribute selectors in bootstrap with my own modifications -----*/
+
+input.ctm_sml_input[type="text"]{
+    height: 17px;
+    font-size: 10px;
+    width: 100px;
+}

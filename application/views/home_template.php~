@@ -8,20 +8,20 @@
    <title><?php echo html::specialchars($title) ?></title>
 
    <!-- LINKS -->
-   
-   <!-- link for boostrap.less to compile less files -->
-   <link rel="stylesheet/less" href="/90sRunner/media/less/bootstrap.less" />
    <!-- link for browser tab icon -->
    <link rel="shortcut icon" href="/90sRunner/media/ico/thumb1.ico" />
+
+   <!-- link for boostrap.less to compile less files -->
+   <link rel="stylesheet/less" href="/90sRunner/media/less/bootstrap.less" />
    
    <link href="/90sRunner/media/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
    <!-- STYLESHEETS and CSS for Bootstrap-->
    <?php echo html::stylesheet(
-         array('media/css/site',),
-         array('screen',)
+         array('media/css/site','media/css/img'),
+         array('screen','screen')
      ); 
    ?>
-
+   
    <!-- JAVASCRIPTS -->
 
    <!-- link to include javascripts for LESS Module -->
@@ -30,9 +30,9 @@
 </head>
 
 <body background="<?php echo $bg ?>">
-     <!-- FULL PAGE BACKGROUND -->
-     <!--<img src="/90sRunner/media/img/site-bg4.jpg" class="bg">-->
-
+   <!-- FULL PAGE BACKGROUND -->
+   <!--<img src="/90sRunner/media/img/garage-stain-590.jpg" class="bg">-->
+   
    <div id="page_wrapper">
 
        <!-- === MAIN PAGE === -->
@@ -49,7 +49,23 @@
 	  <!-- === content for top carousel on main page === -->
 	  <?php  echo $component1; ?>
 
-	  <div id="header" class="inner-shading outter-shading"></div>
+	  <div id="top_navbar" class="inner-shading outter-shading">
+	     <div class="navbar navbar-inverse">
+	        <div class="navbar-inner">
+		   <a class="brand" href="#">90sRunner</a>
+		   <!-- all navbar contents within collapse -->
+		   <div class="nav-collapse collapse">
+		      <ul class="nav" padding-bottom=20px>
+	      	         <?php foreach ($page_links as $link => $url): ?>
+	      	         <li <?php if($link=='home'){echo "class='active'";}?>>
+			      <?php echo html::anchor($link, $url); ?>
+			  </li>
+	      	         <?php endforeach ?>
+	    	      </ul>	      
+		   </div>
+		</div>
+	     </div>
+	  </div>
 	  
           <!-- handle form information if controller defined as homepage -->
           <?php
@@ -67,11 +83,7 @@
 	  <!-- footer wrapper removed till solution to height problem found -->
 	  <!-- <div id="footer-wrapper"> -->
 	  <div id="footer_navbar" class="navbar-inverse outter-shading">
-	    <ul class="nav">
-	      <?php foreach ($page_links as $link => $url): ?>
-	      <li><?php echo html::anchor($link, $url); ?></li>
-	      <?php endforeach ?>
-	    </ul>
+	    
 	  </div>
 	  <!-- </div> -->
 

@@ -27,7 +27,7 @@ html {
 body {
     /* height 100% */
     /* NOTE ^ this screws up main container expanding with content */
-    background: #FFFFFF;
+    background: rgba(241, 241, 241, 1); /* #262424/rgb(38,36,36) */
     min-width: 1080px; /* defense so resizing doesnt break column layout */
 /* 2x (left col + center pad (40px) + right col width + 2x (margin-left/right in container) + wanted margin inbetween cols (20px)*/
 }
@@ -41,33 +41,6 @@ body {
     /*padding-bottom: 150px;*/
    /*** must be same size as footer bottom footer ***/
 }
-
-/*** FULL IMAGE BACKGROUND LAYOUT ***/
-/* NOTE: need to set "position: relative;" for
-   elements otherwise image will overlap them */
-img.bg {
-  /* Set rules to fill background */
-  min-height: 100%;
-  min-width: 1024px;
-  
-  /* Set up proportionate scaling */
-  width: 100%;
-  height: auto;
-  
-  /* Set up positioning */
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-@media screen and (max-width: 1024px) { 
-/* Specific to this particular image */
-  img.bg {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
-}
-
 
 
 /*----- DIVISION TAGS - for column layout -----*/
@@ -100,11 +73,14 @@ div#bottom_footer_bar{
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
 }
 
-/* -------------------------------*/
-div#header{
+/* --- HEADER NAVBAR --- */
+
+div#top_navbar{
     height: 50px;
+    /*padding: 0 0 20px 0;*/
     margin: -6% 120px 6% 120px; /* -6% of page height to top to overlap on carousel */
     position: relative;
+    z-index: 10;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     color: #FFFFFF; /* text */
 }
@@ -126,6 +102,7 @@ div#content_container .column{
     margin-bottom: -1000em;
     /* NOTE ^ allows container columns to expand and grow with content */
 }
+
 div#center{
     /* FIX shadows overlap, fix later */
     padding: 10px 20px; /* 10px top and bottom, 20px left and right */
@@ -168,6 +145,9 @@ div#footer_navbar{
     position: relative;
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
     clear: both;
+    z-index: 10;
+    /*** NOTE: set z-index to a value so the stack ordering of this is before
+	 anything unset (the bottom carousel), and thus will appear on top ***/
 }
 
 div#footer_navbar ul li{
@@ -201,6 +181,15 @@ pushes left from left edge right (width of right column) */
 }
 
 /*----- DIVISION TAGS END -----*/
+
+/*----- POST CSS -----*/
+
+.post_container{
+    width: 100%;
+
+}
+
+/*----- POST TAG ENDs -----*/
 
 ul {
      list-style: none; 
