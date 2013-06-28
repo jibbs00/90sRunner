@@ -4,14 +4,28 @@
         <div name="post_1" class="post_container">
            <h3>Post #1</h3>
            <hr/>
-	   <img src="http://placehold.it/600x360" alt=""/>
-	   <p>text text text text text text text text text text text text </p>
+   	   <!-- 800x450 is 16:9 -->
+	   <img class="post_main_img" src="http://placehold.it/800x450" alt=""/>
+	   <p class="post_abstract">
+	      <img class="post_tab" src="http://placehold.it/80x80" alt=""/>
+   Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
+	   </p>
 	</div>
 	<div name="post_2" class="post_container">
            <h3>Post #2</h3>
            <hr/>
-	   <img src="http://placehold.it/600x360" alt=""/>
-	   <p>text text text text text text text text text text text text </p>
+	   <div class="post_imgs">
+	      <img class="post_main_img" src="http://placehold.it/600x465" alt=""/>
+	      <div class="post_thumbs">
+	         <img class="post_thumb_img" src="http://placehold.it/150x150" alt="" />
+	         <img class="post_thumb_img" src="http://placehold.it/150x150" alt="" />
+	         <img class="post_thumb_img" src="http://placehold.it/150x150" alt="" />
+	      </div>
+	   </div>
+	   <p class="post_abstract">
+	      <img class="post_tab" src="http://placehold.it/80x80" alt=""/>
+   Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
+   	   </p>
 	</div>
      </div>
      <div id="left" class="column leftcol-inner-shading">
@@ -22,16 +36,7 @@
 		 <!-- Input and Actions to edit Interests -->
 		 <div class="btn-group">
 		      <button class="btn btn-small" tabindex="-1">Action</button>
-		      <button class="btn btn-small dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-		      <span class="caret"></span>
-		      </button>
-  		      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-		      	  <li><a tabindex="-1" href="#">Action</a></li>
-    		      	  <li><a tabindex="-1" href="#">Another action</a></li>
-   		      	  <li><a tabindex="-1" href="#">Something else here</a></li>
-    		      	  <li class="divider"></li>
-    		      	  <li><a tabindex="-1" href="#">Separated link</a></li>
-  		      </ul>
+		    
 		 </div>
              </div>
           </form>

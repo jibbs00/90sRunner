@@ -14,6 +14,23 @@ h1, h2 {
 }
 
 
+/*----- POST TAG ENDs -----*/
+
+ul {
+     list-style: none; 
+     padding: 1em 0; 
+   }
+
+/* PARAGRAPHS */
+
+p {
+    font-family: Arial, Helvetica, serif;
+    color: #FFFFFF;
+    margin: 10px,10px,0,0;
+    padding: 10px;
+}
+
+
 /* page setup */
 
 /* initial pargins for everything set to 0 for wrapper */
@@ -28,8 +45,8 @@ body {
     /* height 100% */
     /* NOTE ^ this screws up main container expanding with content */
     background: rgba(241, 241, 241, 1); /* #262424/rgb(38,36,36) */
-    min-width: 1080px; /* defense so resizing doesnt break column layout */
-/* 2x (left col + center pad (40px) + right col width + 2x (margin-left/right in container) + wanted margin inbetween cols (20px)*/
+    min-width: 700px; /* defense so resizing doesnt break column layout */
+/* 2x (left col + center pad (20px) + right col width + 2x (margin-left/right in container) + wanted margin inbetween cols (20px)*/
 }
 
 #page_wrapper{
@@ -86,11 +103,12 @@ div#top_navbar{
 }
 
 div#content_container{ /* container for columns */
-    padding-left: 250px; /* left col width*/
-    padding-right: 290px; /* right col + center padding */
-    margin-left: 120px;
     overflow: hidden;
-    margin-right: 120px;
+    padding-left: 200px; /* left col width*/
+    padding-right: 220px; /* right col + center padding (20px)*/
+    margin-left: 20px;
+    margin-right: 20px;
+    /*** NOTE: changing margin also changes center container size ***/
     min-height: 100%:
     /* set min-height instead of height so if container > page height (html,body,etc.), accomidate content */
 }
@@ -105,7 +123,9 @@ div#content_container .column{
 
 div#center{
     /* FIX shadows overlap, fix later */
-    padding: 10px 20px; /* 10px top and bottom, 20px left and right */
+    padding: 10px 10px; /* 10px top and bottom, 10px left and right */
+    /*** NOTE: if changing padding, change all values where the center 
+	 padding is added or decreased frm */
     margin: 0 0 10px 0; /* 10px bottom, 15px left and right */
     width: 100%;
     background: #AFAFAF; /* silver */
@@ -113,13 +133,13 @@ div#center{
 
 /* left page column */
 div#left{
-    width: 220px; /* left col width - padding (10px for one side) */
-    /*** changing width createa margin ^ (10px) ***/
-    padding: 0 0 10px 25px; /* 0 top and bottom, 10px left */
-    /*** 25px left to compensate for column being cut ***/
+    width: 180px; /* left col width - padding (10px for each side) */
+    /*** changing width creates a margin ^ (10px) ***/
+    padding: 0 0 10px 10px; /* 0 top and bottom, 10px left */
+    /*** 15px left to compensate for column being cut ***/
     margin: 0 0 10px 0; /* 10px bottom, 5px left */
-    right: 300px; /* pushes left from right edge of column */
-    /* left col + center padding and margin */
+    right: 220px; /* pushes left from right edge of column */
+    /* left col + center padding */
     margin-left: -100%; /* pulls left colum so it doesnt wrap with center */
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
 }
@@ -127,14 +147,17 @@ div#left{
 /* right page column */
 div#right{
     text-align: center;
-    width: 230px; /* right column width - padding 10px for one side*/
-    padding: 0 0 10px 6px; /* 0 top and bottom, 6px right */
+    width: 190px; /* right column width - padding (10px for each side)*/
+    padding: 0 0 10px 0px; /* 0 top and bottom, 6px right */
     /*** 6px left to compensate so column isnt cut***/
-    margin: 0 0 10px 15px;  /* 10px bottom, 20px left */
+    margin: 0 0 10px 10px;  /* 10px bottom, 20px left */
     /*** changing left creates margin ^ ***/
     margin-right: -100%; /* pull column right, so its doesnt wrap with center*/
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
 }
+
+/* div used to create shadow at end of fluid container */
+
 
 /*** PAGE FOOTER ***/
 
@@ -185,30 +208,22 @@ pushes left from left edge right (width of right column) */
 /*----- POST CSS -----*/
 
 .post_container{
-    width: 100%;
+    margin-top: 5px;
+}
 
+.post_thumbs{
+    width: 150px;
+}
+
+p.post_abstract{
+    /*float: left; /* to wrap image */
+    font-family: Arial, Helvetica, serif;
+    color: #FFFFFF;
+    margin: 0 5px;
+    padding: 0;
 }
 
 /*----- POST TAG ENDs -----*/
-
-ul {
-     list-style: none; 
-     padding: 1em 0; 
-   }
-
-/* PARAGRAPHS */
-
-p {
-    font-family: Arial, Helvetica, serif;
-    color: #FFFFFF;
-    margin: 10px,10px,0,0;
-    padding: 10px;
-}
-
-p#outter{
-    /* outter columns */
-    color: #000000;
-}
 
 .carousel_top_atr{
     margin: 20px 0 0 0; /* top margin 20px */
@@ -269,3 +284,13 @@ p#outter{
     box-shadow: 6px 0px 10px -7px #000000, -6px 0px 10px -7px #000000;
 }
 
+/*
+
+<div class="multiplethumbs">
+<a href="http://www.speedhunters.com/2013/06/discussion-defining-70s-car-culture/"><img width="264" height="176" src="http://cdn.speedhunters.com/wp-content/uploads/2013/06/70s-07-264x176.jpg" class="attachment-post-secondary-image-thumbnail" alt="70s-07" title="70s-07"></a>
+<a href="http://www.speedhunters.com/2013/06/discussion-defining-70s-car-culture/"><img width="264" height="176" src="http://cdn.speedhunters.com/wp-content/uploads/2013/06/70s-04-264x176.jpg" class="attachment-post-third-image-thumbnail" alt="70s-04" title="70s-04"></a>
+<a href="http://www.speedhunters.com/2013/06/discussion-defining-70s-car-culture/"><img width="264" height="176" src="http://cdn.speedhunters.com/wp-content/uploads/2013/06/70s-02-264x176.jpg" class="attachment-post-fourth-image-thumbnail" alt="70s-02" title="70s-02"></a>
+</div>
+
+
+*/

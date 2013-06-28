@@ -25,3 +25,32 @@ img.bg {
     margin-left: -512px;   /* 50% */
   }
 }
+
+/* class addeds right margin to main image in post */
+div.post_imgs{
+    width: 100;
+    display: inline-block; 
+   /* so thumgs and main image are inline */
+}
+
+div.post_thumbs{
+    /***NOTE: need to set float dynamically to be able to interchange it ***/
+    margin: 0;
+    width: 150px;
+    height: 465px;
+    float: right;
+}
+
+img.post_main_img{
+    margin: 0 10px 10px 0;
+}
+
+img.post_thumb_img{
+    margin-bottom: 5px;
+}
+
+img.post_tab{
+    margin-right: 5px;
+    float: left; /* to wrap text around it */
+}
+
