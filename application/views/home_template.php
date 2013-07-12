@@ -11,14 +11,19 @@
    <!-- link for browser tab icon -->
    <link rel="shortcut icon" href="/90sRunner/media/ico/thumb1.ico" />
 
+   <!-- link to GOOGGLE Webfonts Collection -->
+   <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Fauna+One|Codystar|Muli|Inconsolata|Satisfy|Megrim' type='text/css'>
+
    <!-- link for boostrap.less to compile less files -->
    <link rel="stylesheet/less" href="/90sRunner/media/less/bootstrap.less" />
    
    <link href="/90sRunner/media/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
    <!-- STYLESHEETS and CSS for Bootstrap-->
    <?php echo html::stylesheet(
-	 array('media/css/site','media/css/img','media/css/override'),
-         array('screen','screen','screen')
+	 array('media/css/site','media/css/override','media/css/animations',
+	       'media/css/fonts','media/css/img'),
+         array('screen','screen','screen',
+	       'screen','screen')
      ); 
    ?>
    
@@ -26,7 +31,7 @@
 
    <!-- link to include javascripts for LESS Module -->
    <script type="text/javascript" src="/90sRunner/media/js/less-1.3.3.min.js"></script>
-   
+
 </head>
 
 <body background="<?php echo $bg ?>">
@@ -100,7 +105,7 @@
    <!-- === page_wrapper end === -->
    </div>
 
-   <!--- JAVASCRIPTS --->
+   <!-- JAVA/JQUERY SCRIPTS -->
    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
    <script src="/90sRunner/media/bootstrap/js/bootstrap.min.js"></script>
    <!-- Grab Google CDNs jQuery, with a protocol relative URL; fall back to local if necessary -->
@@ -112,11 +117,16 @@
    <script>
       $(document).ready(function(){
           $('.carousel').carousel({
-	    interval: 2000
+	    interval: 200
 	  });
       });
    </script>
-
+   <!-- script for logo link class to be animated when hovered over -->
+   <script>
+      $('.site_logo').hover(function() {
+          $(this).addClass("pulse");
+      });
+   </script>
 
 </body>
 </html>

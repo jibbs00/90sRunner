@@ -7,6 +7,7 @@
 
 class sites_core
 {
+
     /*
     function takes in $_POST data from an html form, and inputs it
     as a website entry into the 'websites' table in the database
@@ -21,7 +22,7 @@ class sites_core
     	   attached protocol to start of url,
 	   default other categories */
 	$name = sites::parse_url($url);
-	$url = 'https://'.$url;
+	$url = 'http://'.$url;
 	
         // setup DB connection - root for TESTING
 	$con = database::setup_connection('root','crimson');
@@ -72,17 +73,31 @@ class sites_core
 	while($website_row = mysql_fetch_assoc($query))
 	{
 	    // Create the child elements for links and set attributes
+	    /*** call function to reference site logo */
+	    $logo = sites::retrieve_site_logo($website_row['url']);
+
 	    $li = $doc->createElement('li');
-	    $a = $doc->createElement('a', $website_row['name']);
-	    $br = $doc->createElement('br');  // added break line
-	    $a->setAttribute('href', $website_row['url']);
-	    $a->setAttribute('target','_blank'); 
+
+	    $link_a = $doc->createElement('a');
+	    $logo_img = $doc->createElement('img');
+	    //added breakline
+	    $br = $doc->createElement('br');
+
+	    /*** set all atrributes for elements ***/
+	    $link_a->setAttribute('href', $website_row['url']);
+	    $link_a->setAttribute('target','_blank');
+	    // custom logo class for img, custom animation class to pulse when hovered over
+	    $logo_img->setAttribute('class','site_logo pulse');
+	    $logo_img->setAttribute('src',$logo); /*** add logo string to src ***/
+	    $logo_img->setAttribute('alt',$website_row['name']);
 	    // *** _blank opens link in new tab when pressed
 	    
-	    // Append (insert) the child to the parent node
+	    /*** Append all (insert) the child to proper parent node ***/
 	    $ul->appendChild($li);
 	    $ul->appendChild($br);
-	    $li->appendChild($a);
+	    $li->appendChild($link_a);
+	    $link_a->appendChild($logo_img);
+
 	}
 	//$doc->saveHTML();
 	//sites::retrieve_icon_from_url($doc,'https://www.facebook.com');
@@ -98,7 +113,7 @@ class sites_core
 
     
     /*
-     function parese a url string to retrieve tthe domain name
+     function parse's a url string to retrieve the domain name without protocol or extensions
 
      @param $url - url string
      @return $parsed - parsed url string
@@ -106,9 +121,66 @@ class sites_core
     */
     public static function parse_url($url)
     {   
-      $parsed = str_replace('www.','',$url);
+      $parsed = str_replace('http://','',$url);
+      $parsed = str_replace('https://','',$parsed);
+      $parsed = str_replace('www.','',$parsed);
       $parsed = str_replace('.com','',$parsed);
       return $parsed;
+    }
+    
+   /*
+     function returns a string containging the src of a websites logo
+
+     @param $url - string containing full url of desired website
+     @return $logo_str - string containing full path to reference website logo
+
+    */
+    public static function retrieve_site_logo($url)
+    {
+      /*** load class from other file to recursively iterate DOM tree ***/
+      require_once('RecursiveDOMIterator.php');
+
+      /* create new document, load html parsed, @ suppreses errors, remove white spaces */
+      $doc = new DOMDocument();	
+      @$doc->loadHTML(file_get_contents($url));
+      $doc->preserveWhiteSpace = false;
+
+      /*** Use recursiveDOMiterator class to recurse all the elements in the body of the html ***/
+      $dit = new RecursiveIteratorIterator(
+	   new RecursiveDOMIterator($doc)
+	   , RecursiveIteratorIterator::SELF_FIRST);
+      
+      /*** recurse through html document, finding img tags with src content pretaining to the
+	   website logo ***/
+      foreach($dit as $node)
+      {
+	if(($node->nodeType === XML_ELEMENT_NODE)
+	   && $node->nodeName == 'img')
+	{
+	  /* if src atrribute contains a url with logo, parse it and return */
+
+/*** NOTE: need to find a better way to do this as more keywords include banner and header
+	       as well as the images maybe loaded from the css not html ***/
+
+	  $logo_str = $node->getAttribute('src');
+	  if(( strpos($logo_str,'logo') !== false
+	       || strpos($logo_str,'banner') !== false 
+	       || strpos($logo_str,'header') !== false)
+	     && (strpos($logo_str,sites::parse_url($url))) !== false)
+	  {
+	     /* add the site url to the start of the str if not already there
+		(so can reference img src correctly (test for protocol to see) */
+	    if((strpos($logo_str,'http') !== false) 
+	       || (strpos($logo_str,'https') !== false)){
+	      return $logo_str; }
+	    else{
+	      return $url.$logo_str; }
+	  }
+	}
+      }
+
+      /* else return*/
+      return;
     }
 
     /* function will load an html page, parse for the browser icon,
@@ -120,8 +192,7 @@ class sites_core
 	//include('simple_html_dom.php');  //DIDNT WORK
 	//$site = file_get_html($url);
 
-	/* create new document, load html parsed, @ suppreses errors, 
-	remove white spaces */
+	/* create new document, load html parsed, @ suppreses errors, remove white spaces */
 	$doc = new DOMDocument();	
 	@$doc->loadHTML(file_get_contents($url));
 	$doc->preserveWhiteSpace = false;
@@ -169,7 +240,7 @@ class sites_core
 	}
       }
     }
-
+    
 
 }
 

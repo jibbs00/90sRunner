@@ -19,7 +19,8 @@ h1, h2 {
 ul {
      list-style: none; 
      padding: 1em 0; 
-   }
+     margin: 0;
+}
 
 /* PARAGRAPHS */
 
@@ -45,8 +46,8 @@ body {
     /* height 100% */
     /* NOTE ^ this screws up main container expanding with content */
     background: rgba(241, 241, 241, 1); /* #262424/rgb(38,36,36) */
-    min-width: 700px; /* defense so resizing doesnt break column layout */
-/* 2x (left col + center pad (20px) + right col width + 2x (margin-left/right in container) + wanted margin inbetween cols (20px)*/
+    min-width: 680px; /* defense so resizing doesnt break column layout */
+/* 2x (left col + center pad (20px)) + right col width + 2x (margin-left/right in container) + wanted margin inbetween cols (20px)*/
 }
 
 #page_wrapper{
@@ -105,9 +106,9 @@ div#top_navbar{
 div#content_container{ /* container for columns */
     overflow: hidden;
     padding-left: 200px; /* left col width*/
-    padding-right: 220px; /* right col + center padding (20px)*/
-    margin-left: 20px;
-    margin-right: 20px;
+    padding-right: 220px; /* right col + center padding (10px)*/
+    margin-left: 10px;
+    margin-right: 10px;
     /*** NOTE: changing margin also changes center container size ***/
     min-height: 100%:
     /* set min-height instead of height so if container > page height (html,body,etc.), accomidate content */
@@ -133,7 +134,7 @@ div#center{
 
 /* left page column */
 div#left{
-    width: 180px; /* left col width - padding (10px for each side) */
+    width: 180px; /* left col width - center padding (5px for each side) */
     /*** changing width creates a margin ^ (10px) ***/
     padding: 0 0 10px 10px; /* 0 top and bottom, 10px left */
     /*** 15px left to compensate for column being cut ***/
@@ -147,10 +148,10 @@ div#left{
 /* right page column */
 div#right{
     text-align: center;
-    width: 190px; /* right column width - padding (10px for each side)*/
-    padding: 0 0 10px 0px; /* 0 top and bottom, 6px right */
-    /*** 6px left to compensate so column isnt cut***/
-    margin: 0 0 10px 10px;  /* 10px bottom, 20px left */
+    width: 190px; /* right column width - center padding (10px for each side)*/
+    padding: 0 0 10px 0px; /* 0 top and bottom, 1px right */
+    /*** 1px left to compensate so right column isnt cut***/
+    margin: 0 0 10px 10px;
     /*** changing left creates margin ^ ***/
     margin-right: -100%; /* pull column right, so its doesnt wrap with center*/
     background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
@@ -209,10 +210,6 @@ pushes left from left edge right (width of right column) */
 
 .post_container{
     margin-top: 5px;
-}
-
-.post_thumbs{
-    width: 150px;
 }
 
 p.post_abstract{
