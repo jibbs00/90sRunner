@@ -32,13 +32,17 @@ div.post_imgs{
    /* so thumbs and main image are inline and so container expands to content*/
 }
 
-img.post_main_img{
+/* 16:9 ratip */
+img.post_main_img_1{
     margin: 0 7px 7px 0;
+    width: 790px;
+    height: 444px;
 }
 
-/* 16:9 ratio */
-img.main_img_size{
-    width: 790px;
+/* 4:3 ratio */
+img.post_main_img_2{
+    margin: 0 7px 7px 0;
+    width: 590px;
     height: 444px;
 }
 

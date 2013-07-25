@@ -445,6 +445,53 @@ fadeIn
     }
 }
 
+
+/*
+==============================================
+expand
+==============================================
+*/
+
+/*** NOTE: modified class to increase object size 
+     when hovered over ***/
+
+.expand{
+    animation-name: expand;
+    -webkit-animation-name: expand;
+
+    animation-duration: 1.0s;
+    -webkit-animation-duration: 1.0s;
+
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+
+    visibility: visible !important;
+}
+
+@keyframes expand {
+    0% {
+	transform: scale(1.2);
+	}
+    50% {
+	transform: scale(1.2);
+    }
+    100% {
+	transform: scale(1.2);
+    }
+}
+
+@-webkit-keyframes expand {
+    0% {
+	-webkit-transform: scale(1.2);
+	}
+    50% {
+	-webkit-transform: scale(1.2);
+    }
+    100% {
+	-webkit-transform: scale(1.2);
+    }
+}
+
 /*
 ==============================================
 expandOpen
@@ -741,9 +788,9 @@ pulse
     0% {
 	transform: scale(0.9);
 	opacity: 0.7;
-	}
+    }
     50% {
-	ransform: scale(1);
+	transform: scale(1);
 	opacity: 1;
     }
     100% {
@@ -764,6 +811,56 @@ pulse
     100% {
 	-webkit-transform: scale(0.95);
 	opacity: 0.7;
+    }
+}
+
+/*
+==============================================
+pulse modified
+==============================================
+*/
+
+/*** NOTE: opacity slightly changed to lessen
+     pulse ***/
+
+.pulse_mod{
+    animation-name: pulse_mod;
+    -webkit-animation-name: pulse_mod;
+
+    animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes pulse_mod {
+    0% {
+	transform: scale(0.9);
+	opacity: 0.95; /* 0.7 */
+    }
+    50% {
+	transform: scale(1);
+	opacity: 1;
+    }
+    100% {
+	transform: scale(0.9);
+	opacity: 0.95; /* 0.7 */
+    }
+}
+
+@-webkit-keyframes pulse_mod {
+    0% {
+	-webkit-transform: scale(0.9); /* 0.95 */
+	opacity: 0.95; /* 0.7 */
+	}
+    50% {
+	-webkit-transform: scale(1);
+	opacity: 1;
+    }
+    100% {
+	-webkit-transform: scale(0.9); /* 0.95 */
+	opacity: 0.95; /* 0.7 */
     }
 }
 

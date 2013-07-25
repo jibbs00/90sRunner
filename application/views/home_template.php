@@ -74,16 +74,30 @@
 	  
           <!-- handle form information if controller defined as homepage -->
           <?php
-            if(isset($_POST['site_input'])){
-	      /* insert to database */
-              sites::add_url($_POST['site_input']);
+
+	    /*** pull content based on the users tags ***/
+	    //$content = content::retrieve_content('http://www.speedhunters.com');
+
+            if(isset($_POST['right_input'])){
+	      /* insert into database */
+              sites::add_url($_POST['right_input']);
               /* reset $content */
               $content = sites::retrieve_urls($content);
             }
+	    if(isset($_POST['left_input'])){
+	      /* insert into database */
+	      tags::add_tag($_POST['left_input']);
+	      /* reset $content */
+	      $content = tags::retrieve_tags($content);
+	    }
+
           ?>
 
           <!-- MAIN PAGE CONTENT -->
 	  <?php echo $content; ?>
+
+	  <!-- aestheically fixes bottom of container -->
+	  <div id="container_bottom" class="outter-shading"></div>
 
 	  <!-- footer wrapper removed till solution to height problem found -->
 	  <!-- <div id="footer-wrapper"> -->
@@ -108,24 +122,39 @@
    <!-- JAVA/JQUERY SCRIPTS -->
    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
    <script src="/90sRunner/media/bootstrap/js/bootstrap.min.js"></script>
-   <!-- Grab Google CDNs jQuery, with a protocol relative URL; fall back to local if necessary -->
-   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <!-- (NOTE: causes console error) Grab Google CDNs jQuery, with a protocol relative URL; fall back to local if necessary
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
    <script>
       window.jQuery || document.write('<script src="var/www/html/90sRunner/media/js/jquery-1.9.1.min.js"><\/script>')
    </script>
    <!-- initialize carosuel -->
    <script>
-      $(document).ready(function(){
-          $('.carousel').carousel({
-	    interval: 200
-	  });
+      $(document).ready(
+          function(){
+              $('.carousel').carousel({
+		 interval: 4000
+		  /*pause: false;*/
+	      });
       });
    </script>
-   <!-- script for logo link class to be animated when hovered over -->
+   <!-- script for relevent classes and elements to be animated when hovered over -->
    <script>
-      $('.site_logo').hover(function() {
-          $(this).addClass("pulse");
-      });
+      $('.site_logo').hover(
+          function() {
+              $(this).addClass("pulse_mod");
+      	  },
+	  function(){
+	      $(this).removeClass("pulse_mod");
+	  }
+      );
+      $('.post_tab').hover(
+          function() {
+              $(this).addClass("pulse_mod");
+      	  },
+	  function(){
+	      $(this).removeClass("pulse_mod");
+	  }
+      );
    </script>
 
 </body>

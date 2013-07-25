@@ -15,3 +15,8 @@ font-family: 'Megrim', cursive;
     font-family: 'Megrim', cursive;
     font-size: 28px;
 }
+
+.satisfy_tag{ /* span */
+    font-family: 'Satisfy', cursive;
+    font-size: 12px;
+}

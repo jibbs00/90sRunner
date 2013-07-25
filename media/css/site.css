@@ -13,8 +13,7 @@ h1, h2 {
     padding: 0 10px; /* 0 top and bottom, 10px right and left */
 }
 
-
-/*----- POST TAG ENDs -----*/
+/*----- POST ENDs -----*/
 
 ul {
      list-style: none; 
@@ -137,7 +136,7 @@ div#left{
     width: 180px; /* left col width - center padding (5px for each side) */
     /*** changing width creates a margin ^ (10px) ***/
     padding: 0 0 10px 10px; /* 0 top and bottom, 10px left */
-    /*** 15px left to compensate for column being cut ***/
+    /*** 10px left to compensate for column being cut ***/
     margin: 0 0 10px 0; /* 10px bottom, 5px left */
     right: 220px; /* pushes left from right edge of column */
     /* left col + center padding */
@@ -158,7 +157,13 @@ div#right{
 }
 
 /* div used to create shadow at end of fluid container */
-
+div#container_bottom{
+    height: 10px;
+    margin: 0 10px 0 10px;
+    background: rgba(38, 36, 36, 0.834); /* #262424/rgb(38,36,36) */
+    z-index: 10;
+    /* so other elements dont overlap it */
+}
 
 /*** PAGE FOOTER ***/
 
@@ -212,15 +217,7 @@ pushes left from left edge right (width of right column) */
     margin-top: 5px;
 }
 
-p.post_abstract{
-    /*float: left; /* to wrap image */
-    font-family: Arial, Helvetica, serif;
-    color: #FFFFFF;
-    margin: 0 5px;
-    padding: 0;
-}
-
-/*----- POST TAG ENDs -----*/
+/*--------------------*/
 
 .carousel_top_atr{
     margin: 20px 0 0 0; /* top margin 20px */
@@ -231,6 +228,58 @@ p.post_abstract{
     /*** NOTE: 5% top margin to pull in place as has to come
 	 before footer in html due to framework constraints ***/
 }
+
+/*----- TAGS -----*/
+
+div.cloud_tags{
+    text-align: justify;
+    padding: 7px 7px 7px 0px;
+    width: 160px;
+}
+
+a.tag_text{
+    font-size: 12px;
+}
+
+span.tag{
+    font-size: 12px;
+}
+
+span.tag:hover, span.tag:active{
+    font-size: 120%;
+    color: white;
+}
+
+span.tag_count{
+    white-space: no-wrap;
+}
+
+/*----------------*/
+
+/*---POST ABSTRACT---*/
+
+div.abstract_container{
+    min-height: 80px;
+    margin: 7px 0 7px 0;
+    position: relative;
+    text-align: left;
+}
+
+p.abstract{
+    /*float: left; /* to wrap image */
+    font-family: Arial, Helvetica, serif;
+    color: #FFFFFF;
+    margin: 0 5px;
+    padding: 0;
+}
+
+a.post_link{
+    margin-left: 7px;
+    font-size: 16px;
+    
+}
+
+/*----------------*/
 
 /*----- CLASSES -----*/
 
@@ -280,14 +329,3 @@ p.post_abstract{
     -moz-box-shaodw: 6px 0px 10px -7px #000000, -6px 0px 10px -7px #000000;
     box-shadow: 6px 0px 10px -7px #000000, -6px 0px 10px -7px #000000;
 }
-
-/*
-
-<div class="multiplethumbs">
-<a href="http://www.speedhunters.com/2013/06/discussion-defining-70s-car-culture/"><img width="264" height="176" src="http://cdn.speedhunters.com/wp-content/uploads/2013/06/70s-07-264x176.jpg" class="attachment-post-secondary-image-thumbnail" alt="70s-07" title="70s-07"></a>
-<a href="http://www.speedhunters.com/2013/06/discussion-defining-70s-car-culture/"><img width="264" height="176" src="http://cdn.speedhunters.com/wp-content/uploads/2013/06/70s-04-264x176.jpg" class="attachment-post-third-image-thumbnail" alt="70s-04" title="70s-04"></a>
-<a href="http://www.speedhunters.com/2013/06/discussion-defining-70s-car-culture/"><img width="264" height="176" src="http://cdn.speedhunters.com/wp-content/uploads/2013/06/70s-02-264x176.jpg" class="attachment-post-fourth-image-thumbnail" alt="70s-02" title="70s-02"></a>
-</div>
-
-
-*/

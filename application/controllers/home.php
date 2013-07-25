@@ -25,8 +25,11 @@ class Home_Controller extends Website_Controller
     $this->template->component2 = new View('components/bottom_carousel');
     $this->template->bg = "";
 
-    /*** rewrites the content of the page upon initial loading ***/
-    $this->template->content = sites::retrieve_urls($this->template->content);    
+    /*** rewrites the content of the page upon initial loading to gather info
+     about user from database, and capture relevent content from all urls pretaining ***/
+    $this->template->content = content::retrieve_content("http://www.speedhunters.com");
+    $this->template->content = sites::retrieve_urls($this->template->content);
+    $this->template->content = tags::retrieve_tags($this->template->content);
   }
 
 }

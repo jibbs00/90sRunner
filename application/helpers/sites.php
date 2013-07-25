@@ -28,6 +28,7 @@ class sites_core
 	$con = database::setup_connection('root','crimson');
   	
 	// query database to insert new website into table 
+	/*** NOTE: uses backticks not single quotes in some palces ***/
 	$query = " INSERT INTO `90s_runner`.`websites` 
 	(`id`, `name`, `url`, `description`, `priority`) 
 	VALUES (NULL, '$name', '$url', '', '1'); ";
@@ -50,14 +51,14 @@ class sites_core
      @return $content
 
     */
-    public static function retrieve_urls($user)
+    public static function retrieve_urls($content)
     {
         // Variable for main view filename
-        $view = '/var/www/html/90sRunner/application/views/pages/home.php';
-
+        //$view = '/var/www/html/90sRunner/application/views/pages/home.php';
+	
         // Load the document
 	$doc = new DOMDocument();	
-	$doc->loadHTMLFile($view);
+	$doc->loadHTML($content);
 	$doc->formatOutput = true;
 	
 	// determine place to insert URLS
@@ -82,12 +83,12 @@ class sites_core
 	    $logo_img = $doc->createElement('img');
 	    //added breakline
 	    $br = $doc->createElement('br');
-
+	    
 	    /*** set all atrributes for elements ***/
 	    $link_a->setAttribute('href', $website_row['url']);
 	    $link_a->setAttribute('target','_blank');
 	    // custom logo class for img, custom animation class to pulse when hovered over
-	    $logo_img->setAttribute('class','site_logo pulse');
+	    $logo_img->setAttribute('class','site_logo');
 	    $logo_img->setAttribute('src',$logo); /*** add logo string to src ***/
 	    $logo_img->setAttribute('alt',$website_row['name']);
 	    // *** _blank opens link in new tab when pressed
@@ -144,7 +145,7 @@ class sites_core
       $doc = new DOMDocument();	
       @$doc->loadHTML(file_get_contents($url));
       $doc->preserveWhiteSpace = false;
-
+      
       /*** Use recursiveDOMiterator class to recurse all the elements in the body of the html ***/
       $dit = new RecursiveIteratorIterator(
 	   new RecursiveDOMIterator($doc)
@@ -188,10 +189,6 @@ class sites_core
     */
     public static function retrieve_icon_from_url(DOMNode $domnode, $url)
     {
-	/*** use PHP simple dom parser module to load html from site ***/
-	//include('simple_html_dom.php');  //DIDNT WORK
-	//$site = file_get_html($url);
-
 	/* create new document, load html parsed, @ suppreses errors, remove white spaces */
 	$doc = new DOMDocument();	
 	@$doc->loadHTML(file_get_contents($url));
@@ -232,16 +229,16 @@ class sites_core
     /* function to print DOM Nodes */
     public static function print_DOM_Nodes(DOMNode $domnode)
     {
-      foreach($domnode->childNodes as $node)
+      print $domnode->nodeName.' : '.$domnode->nodeValue.'<br>';
+      if($domnode->hasChildNodes())
       {
-	print $node->nodeName.' : '.$node->nodeType.'<br>';
-	if($node->hasChildNodes()){
+	foreach($domnode->childNodes as $node)
+      	{
 	  sites::print_DOM_Nodes($node);
-	}
+      	}
       }
     }
     
-
 }
 
 ?>
